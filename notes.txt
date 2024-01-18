@@ -1,0 +1,4 @@
+calender with resource timelien view.
+get 1 package
+https://www.npmjs.com/package/@fullcalendar/resource-timeline
+https://www.npmjs.com/package/@fullcalendar/timeline
