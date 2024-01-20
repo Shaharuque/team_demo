@@ -22,21 +22,14 @@ const Sidebar = () => {
             </div>
 
             <div className="flex gap-4 ">
-                <Dropdown label="Dropdown" inline>
+                <Dropdown label="Solution" inline>
                     <Dropdown.Item>Dashboard</Dropdown.Item>
                     <Dropdown.Item>Settings</Dropdown.Item>
                     <Dropdown.Item>Earnings</Dropdown.Item>
                     <Dropdown.Item>Sign out</Dropdown.Item>
                 </Dropdown>
 
-                <Dropdown label="Dropdown" inline>
-                    <Dropdown.Item>Dashboard</Dropdown.Item>
-                    <Dropdown.Item>Settings</Dropdown.Item>
-                    <Dropdown.Item>Earnings</Dropdown.Item>
-                    <Dropdown.Item>Sign out</Dropdown.Item>
-                </Dropdown>
-
-                <Dropdown label="Dropdown" inline>
+                <Dropdown label="Resources" inline>
                     <Dropdown.Item>Dashboard</Dropdown.Item>
                     <Dropdown.Item>Settings</Dropdown.Item>
                     <Dropdown.Item>Earnings</Dropdown.Item>
