@@ -2,8 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
- :root {
-  font-family: "ubuntu", sans-serif;
+:root {
+  /* color: var(--black, #000);
+  font-family: Ubuntu;
+  font-style: normal;
+  line-height: normal; */
 }
 
 /*
@@ -25,7 +28,7 @@ body {
     rgb(var(--background-start-rgb));
 } */
 
-.svg-container{
+.svg-container {
   position: relative;
   height: 100vh;
 }
