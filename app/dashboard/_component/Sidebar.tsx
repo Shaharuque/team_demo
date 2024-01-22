@@ -22,7 +22,7 @@ const Sidebar = () => {
             </div>
 
             <div className="flex gap-4 ">
-                <Dropdown label="Solution" inline>
+                <Dropdown label="Solution" className='w-[100vw] z-20' inline>
                     <Dropdown.Item>Dashboard</Dropdown.Item>
                     <Dropdown.Item>Settings</Dropdown.Item>
                     <Dropdown.Item>Earnings</Dropdown.Item>
@@ -38,7 +38,7 @@ const Sidebar = () => {
             </div>
 
             <div className='flex gap-2'>
-                <Button>Log In</Button>
+                <Button className='bg-white text-black hover:text-white'>Log In</Button>
                 <Button>Sign Up</Button>
             </div>
 

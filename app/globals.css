@@ -33,7 +33,7 @@ body {
   height: 100vh;
 }
 
-.svg-container svg {
+.svg-container .svg-content {
   position: absolute;
   bottom: 0;
 }

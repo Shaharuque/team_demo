@@ -50,7 +50,7 @@ const solutionsPage = () => {
 
         <div className="svg-container overflow-hidden">
             <svg
-                
+                className='svg-content'
                 xmlns="http://www.w3.org/2000/svg"
                 width="717"
                 viewBox="0 0 717 411"
