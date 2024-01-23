@@ -48,7 +48,7 @@ const solutionsPage = () => {
 
         // </div>
 
-        <div className="svg-container overflow-hidden">
+        <div className="svg-container">
             <svg
                 className='svg-content'
                 xmlns="http://www.w3.org/2000/svg"

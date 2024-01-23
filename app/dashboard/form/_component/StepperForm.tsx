@@ -3,12 +3,17 @@
 import React from 'react';
 import { useForm, FormProvider, useFormContext } from 'react-hook-form';
 
+interface StepProps {
+  register: any;
+  formState: { errors: any };
+}
+
 const StepperForm = () => {
   const methods = useForm();
   const { handleSubmit, formState, getValues } = methods;
   const { isSubmitting, isValid, currentStep, goToNextStep, goToPreviousStep } = useStepperMethods(methods);
 
-  const onSubmit = (data) => {
+  const onSubmit = (data:any) => {
     console.log(data);
     // Add your form submission logic here
   };
@@ -53,7 +58,7 @@ const StepperForm = () => {
 };
 
 const Step1 = () => {
-  const { register, formState: { errors } } = useFormContext();
+  const { register, formState: { errors:any } } = useFormContext();
   
   return (
     <div>
@@ -62,9 +67,9 @@ const Step1 = () => {
         type="text"
         id="firstName"
         {...register('firstName', { required: 'First Name is required' })}
-        className={`w-full p-2 border ${errors.firstName ? 'border-red-500' : 'border-gray-300'} rounded`}
+        className={`w-full p-2 border ${errors?.firstName ? 'border-red-500' : 'border-gray-300'} rounded`}
       />
-      {errors.firstName && <p className="text-red-500 text-xs mt-1">{errors.firstName.message}</p>}
+      {errors?.firstName && <p className="text-red-500 text-xs mt-1">{errors?.firstName.message}</p>}
     </div>
   );
 };
@@ -81,7 +86,7 @@ const Step2 = () => {
         {...register('lastName', { required: 'Last Name is required' })}
         className={`w-full p-2 border ${errors.lastName ? 'border-red-500' : 'border-gray-300'} rounded`}
       />
-      {errors.lastName && <p className="text-red-500 text-xs mt-1">{errors.lastName.message}</p>}
+      {errors.lastName && <p className="text-red-500 text-xs mt-1">{errors?.lastName.message}</p>}
     </div>
   );
 };
@@ -103,7 +108,7 @@ const Step3 = () => {
   );
 };
 
-const useStepperMethods = (methods) => {
+const useStepperMethods = (methods:any) => {
   const { setError, clearErrors, formState, setValue, getValues } = methods;
   const { isSubmitting, isValid, currentStep } = formState;
 
