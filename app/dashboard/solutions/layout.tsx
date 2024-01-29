@@ -8,7 +8,6 @@ export default function SolutionsLayout({
     return (
       <main>
           {children}
-        
       </main>
     );
   }

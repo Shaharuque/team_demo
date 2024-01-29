@@ -2,3 +2,8 @@ calender with resource timelien view.
 get 1 package
 https://www.npmjs.com/package/@fullcalendar/resource-timeline
 https://www.npmjs.com/package/@fullcalendar/timeline
+
+multistep form followed: https://github.com/HamedBahram/next-multistep-form/blob/main/components/form.tsx
+https://www.youtube.com/watch?v=lW_0InDuejU
+
+## https://dummyjson.com/docs/auth

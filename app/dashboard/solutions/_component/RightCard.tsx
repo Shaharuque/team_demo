@@ -4,8 +4,8 @@ import image1 from '../../../../public/images/image1.png'
 
 const RightCard = () => {
     return (
-        <div>
-            <Image src={image1} alt='image1'   className='rounded-lg  object-fit'/>
+        <div className='flex justify-center'>
+            <Image src={image1} alt='image1' height={400} width={400}   className='rounded-lg'/>
         </div>
     );
 };

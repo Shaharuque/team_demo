@@ -9,10 +9,10 @@ const Resources = () => {
     };
 
     return (
-        <div className="inline-block text-left">
+        <div className="md:inline-block text-left">
             <button
                 type="button"
-                className="inline-flex items-center justify-center w-full px-4 py-2 text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none "
+                className="inline-flex items-center justify-center md:w-full px-4 py-2 text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none "
                 onClick={toggleDropdown}
             >
                 Solutions
