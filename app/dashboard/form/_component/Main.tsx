@@ -16,7 +16,7 @@ import StepThreeImage from './stepImages/StepThreeImage';
 const Main = () => {
     const [currentStep, setCurrentStep] = useState(0)
     return (
-        <div className='grid md:grid-cols-2 mx-[60px] my-[20px]'>
+        <div className='grid md:grid-cols-2 mx-[60px] my-[20px] overflow-hidden'>
 
             {
                 currentStep === 0 ?
@@ -37,7 +37,7 @@ const Main = () => {
                             </motion.div>
             }
 
-            <div>
+            <div className='z-40'>
                 <StepperForm currentStep={currentStep} setCurrentStep={setCurrentStep} />
                 {/* <TestForm /> */}
             </div>

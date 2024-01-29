@@ -31,7 +31,7 @@ body {
 .svg-container {
   position: relative;
   /* height: 100vh; */
-  min-height: calc(100vh - 100px);
+  min-height: calc(100vh - 20px);
 }
 
 .svg-container .svg-content {
