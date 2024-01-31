@@ -12,6 +12,7 @@ import { useForm, SubmitHandler } from 'react-hook-form'
 import { useRouter } from 'next/navigation'
 import Services from './steps/Services'
 import Project from './steps/Project'
+import Budget from './steps/Budget'
 
 type Inputs = z.infer<typeof FormDataSchema>
 
@@ -43,7 +44,7 @@ type StepState = {
   setCurrentStep: React.Dispatch<React.SetStateAction<number>>;
 };
 
-export default function StepperForm({currentStep,setCurrentStep}:props) {
+export default function StepperForm({ currentStep, setCurrentStep }: props) {
   const [previousStep, setPreviousStep] = useState(0)
   // const [currentStep, setCurrentStep] = useState(0)
   const delta = currentStep - previousStep
@@ -355,6 +356,10 @@ export default function StepperForm({currentStep,setCurrentStep}:props) {
         )}
 
         {currentStep === 2 && (
+          <Budget></Budget>
+        )}
+
+        {currentStep === 3 && (
           <>
             <h2 className='text-base font-semibold leading-7 text-gray-900'>
               Complete

@@ -16,7 +16,7 @@ import StepThreeImage from './stepImages/StepThreeImage';
 const Main = () => {
     const [currentStep, setCurrentStep] = useState(0)
     return (
-        <div className='grid md:grid-cols-2 mx-[60px] my-[20px] overflow-hidden'>
+        <div className='grid lg:grid-cols-2 mx-[60px] my-[20px] overflow-hidden'>
 
             {
                 currentStep === 0 ?

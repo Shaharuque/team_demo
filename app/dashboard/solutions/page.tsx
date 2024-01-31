@@ -50,7 +50,7 @@ const solutionsPage = () => {
 
         <div className="svg-container">
             <svg
-                className='svg-content'
+                className='hidden md:visible svg-content'
                 xmlns="http://www.w3.org/2000/svg"
                 width="717"
                 viewBox="0 0 717 411"
@@ -65,7 +65,7 @@ const solutionsPage = () => {
                 </defs>
             </svg>
 
-            {/* <div className='mt-[20px] md:mt-[80px] mx-[20px] md:mx-[40px] lg:mx-[80px]'>
+            <div className='mt-[20px] md:mt-[80px] mx-[20px] md:mx-[40px] lg:mx-[80px]'>
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-2'>
                     <div className="z-10 flex justify-center">
                         <RightCard></RightCard>
@@ -75,7 +75,7 @@ const solutionsPage = () => {
                     </div>
 
                 </div>
-            </div> */}
+            </div>
         </div>
     );
 };

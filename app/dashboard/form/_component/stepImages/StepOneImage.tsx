@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
-import image1 from '../../../../../public/images/image1.png'
+import image1 from '../../../../../public/images/julian.png'
 import { motion } from 'framer-motion';
 
 const StepOneImage = () => {
