@@ -18,20 +18,20 @@ type Inputs = z.infer<typeof FormDataSchema>
 
 const steps = [
   {
-    id: 'Services',
+    id: 0,
     step: 1,
-    name: 'Personal Information',
+    name: 'Services',
     fields: ['firstName', 'lastName', 'email']
   },
   {
-    id: 'Project',
+    id: 1,
     step: 2,
-    name: 'Address',
+    name: 'Project',
     fields: ['country', 'state', 'city', 'street', 'zip']
   },
-  { id: 'Budget', step: 3, name: 'Complete' },
-  { id: 'Skillset', step: 4, name: 'Skillsets' },
-  { id: 'Contact', step: 5, name: 'contacts' }
+  { id: 2, step: 3, name: 'Budget' },
+  { id: 3, step: 4, name: 'Skillset' },
+  { id: 4, step: 5, name: 'Contact' }
 ]
 
 type props = {
@@ -45,6 +45,7 @@ type StepState = {
 };
 
 export default function StepperForm({ currentStep, setCurrentStep }: props) {
+  const [visited, setVisited] = useState([])
   const [previousStep, setPreviousStep] = useState(0)
   // const [currentStep, setCurrentStep] = useState(0)
   const delta = currentStep - previousStep
@@ -67,6 +68,13 @@ export default function StepperForm({ currentStep, setCurrentStep }: props) {
 
   type FieldName = keyof Inputs
 
+  const triggerContinue = () => {
+    if (currentStep < steps.length) {
+      setCurrentStep((step) => step + 1);
+      setVisited([...visited, currentStep])
+    }
+  };
+
   const next = async () => {
     const fields = steps[currentStep].fields
     const output = await trigger(fields as FieldName[], { shouldFocus: true })
@@ -80,6 +88,7 @@ export default function StepperForm({ currentStep, setCurrentStep }: props) {
       }
       setPreviousStep(currentStep)
       setCurrentStep(step => step + 1)
+      setVisited([...visited, currentStep])
     }
   }
 
@@ -88,8 +97,11 @@ export default function StepperForm({ currentStep, setCurrentStep }: props) {
       setPreviousStep(currentStep)
       setCurrentStep(step => step - 1)
     }
+    console.log("prev function ar vitor currentStep", currentStep)
+    setVisited(visited.filter(step => step !== currentStep-1))
   }
-  console.log(currentStep, steps.length)
+  console.log("currentStep", currentStep)
+  console.log("visited", visited)
 
   return (
     <section className=' inset-0 flex flex-col justify-between p-6'>
@@ -112,12 +124,12 @@ export default function StepperForm({ currentStep, setCurrentStep }: props) {
             }
 
             return (
-              <li key={step.name} className={`md:flex-1 ${stepStatus}`}>
+              <li key={step.id} className={`md:flex-1 ${stepStatus}`}>
                 <div className='flex justify-between'>
                   <span className={`text-sm font-medium ${textClass}`}>
-                    {step.id}
+                    {step.name}
                   </span>
-                  <span className='text-sm'>{step?.step}</span>
+                  <span className='text-sm'>{visited?.indexOf(step?.id) !== -1 ? "!" : step?.step}</span>
                 </div>
                 <div
                   className={`flex w-full flex-col border-l-4 ${borderColor} py-2 pl-4 transition-colors md:border-l-0 md:border-t-4 md:pb-0 md:pl-0 md:pt-4`}
@@ -377,7 +389,7 @@ export default function StepperForm({ currentStep, setCurrentStep }: props) {
           {
             // first step
             currentStep === 0 ?
-              <button type='button' onClick={next} className='bg-teal-600 text-white p-2 rounded-md'>Continue</button>
+              <button type='button' onClick={triggerContinue} className='bg-teal-600 text-white p-2 rounded-md'>Continue</button>
               :
               // last step
               currentStep === steps.length - 1 ?
