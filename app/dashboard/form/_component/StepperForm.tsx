@@ -13,6 +13,7 @@ import { useRouter } from 'next/navigation'
 import Services from './steps/Services'
 import Project from './steps/Project'
 import Budget from './steps/Budget'
+import Contact from './steps/Contact'
 
 type Inputs = z.infer<typeof FormDataSchema>
 
@@ -381,6 +382,10 @@ export default function StepperForm({ currentStep, setCurrentStep }: props) {
             </p>
           </>
         )}
+
+        {currentStep === 4 && (
+          <Contact></Contact>
+        )}
       </form>
 
       {/* Navigation */}
@@ -389,7 +394,7 @@ export default function StepperForm({ currentStep, setCurrentStep }: props) {
           {
             // first step
             currentStep === 0 ?
-              <button type='button' onClick={triggerContinue} className='bg-teal-600 text-white p-2 rounded-md'>Continue</button>
+              <button type='button' onClick={next} className='bg-teal-600 text-white p-2 rounded-md'>Continue</button>
               :
               // last step
               currentStep === steps.length - 1 ?
