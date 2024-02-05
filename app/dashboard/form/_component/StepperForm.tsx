@@ -14,6 +14,7 @@ import Services from './steps/Services'
 import Project from './steps/Project'
 import Budget from './steps/Budget'
 import Contact from './steps/Contact'
+import { useTaskStore } from '@/lib/store'
 
 type Inputs = z.infer<typeof FormDataSchema>
 
@@ -51,6 +52,13 @@ export default function StepperForm({ currentStep, setCurrentStep }: props) {
   // const [currentStep, setCurrentStep] = useState(0)
   const delta = currentStep - previousStep
   const router = useRouter();
+
+  //getting data from zustand store
+  const tasks = useTaskStore(state => state.tasks)
+  console.log("tasks", tasks)
+
+  const addTask = useTaskStore(state => state.addTask)
+
   const {
     register,
     handleSubmit,
@@ -64,7 +72,15 @@ export default function StepperForm({ currentStep, setCurrentStep }: props) {
 
   const processForm: SubmitHandler<Inputs> = data => {
     console.log(data)
-    reset()
+
+    const title = data.firstName
+    const description = data.lastName
+    const payload={
+      title,
+      description
+    }
+    addTask(payload)
+    // reset()
   }
 
   type FieldName = keyof Inputs
@@ -85,7 +101,7 @@ export default function StepperForm({ currentStep, setCurrentStep }: props) {
     if (currentStep < steps.length) {
       if (currentStep === steps.length - 1) {
         await handleSubmit(processForm)()
-        router.replace("/dashboard");
+        //router.replace("/dashboard");
       }
       setPreviousStep(currentStep)
       setCurrentStep(step => step + 1)
@@ -99,7 +115,7 @@ export default function StepperForm({ currentStep, setCurrentStep }: props) {
       setCurrentStep(step => step - 1)
     }
     console.log("prev function ar vitor currentStep", currentStep)
-    setVisited(visited.filter(step => step !== currentStep-1))
+    setVisited(visited.filter(step => step !== currentStep - 1))
   }
   console.log("currentStep", currentStep)
   console.log("visited", visited)
